@@ -37,13 +37,12 @@
     <section class="catalogue-section-premium" id="accueil">
       <div class="container">
         <div class="section-header logos">
-          <img src="logos/logo_ISMB.jpg" alt="Logo ISMB">
-          <span class="x-separator">×</span>
-          <img src="logos/Logo PDS Paris Digital School.jpg" alt="Logo PDS">
+          <img src="N_logos/L.ISMB.png" alt="Logo ISMB">
+          <span class="x-separator">|</span>
+          <img src="N_logos/L.PDS.png" alt="Logo PDS">
         </div>
-        <h2 class="catalogue-title">MBA E-Business</h2>
-        <h3 class="catalogue-title">L'Excellence Digitale</h3>
-        <p class="catalogue-desc">Une occasion exceptionnelle s'invite au Togo et en Afrique pour les futurs leaders du digital : un MBA INTERNATIONAL en E-Business, né d’un partenariat ambitieux entre l’<strong>Institut Supérieur Monseigneur Bakpessi (ISMB)</strong> et <strong>Paris Digital School (PDS)</strong>.
+        <h2 class="catalogue-title">MBA E-Business <br> L'Excellence Digitale</h3>
+        <p class="catalogue-desc">Une occasion exceptionnelle s'invite au Togo et en Afrique pour <br> les futurs leaders du digital : un MBA INTERNATIONAL <br> en E-Business, né d’un partenariat ambitieux entre <br> l’<strong>Institut Supérieur Monseigneur Bakpessi (ISMB)</strong> <br> et <strong>Paris Digital School (PDS)</strong>.
 </p>
 
         <div class="premium-offer-box">
@@ -75,12 +74,12 @@
     </section>
 
     <!-- SECTION ISMB CUBE SAEI -->
-    <section class="catalogue-section">
+    <section class="catalogue-section fade-in-section">
       <div class="container">
         <div class="section-header logos">
-              <img src="logos/logo_ISMB.jpg" alt="Logo ISMB">
-              <span class="x-separator">×</span>
-              <img src="logos/cube_logo.jpg" alt="Logo cube">
+              <img src="N_logos/L.ISMB.png" alt="Logo ISMB">
+              <span class="x-separator">|</span>
+              <img src="N_logos/L.CUBE.png" alt="Logo cube">
         </div>
           <h2 class="catalogue-title">Partenariat ISMB x CUBE SAEI</h2>
           <p class="catalogue-desc">Explorez les modules de formation continue proposés par l'ISMB en partenariat avec CUBE SAEI.</p>
@@ -114,7 +113,7 @@
     </section>
 
     <!-- SECTION LICENCES -->
-    <section class="catalogue-section" id="licences">
+    <section class="catalogue-section fade-in-section" id="licences">
         <div class="container">
             <h2 class="catalogue-title">Nos Parcours Licences</h2>
             <p class="catalogue-desc">Découvrez nos programmes de Licence conçus pour répondre aux exigences du marché du travail.</p> 
@@ -177,7 +176,7 @@
     </section>
 
     <!-- SECTION BTS -->
-    <section class="catalogue-section" id="bts">
+    <section class="catalogue-section fade-in-section" id="bts">
         <div class="container">
             <h2 class="catalogue-title">Nos Formations BTS</h2>
             <p class="catalogue-desc">Optez pour un Brevet de Technicien Supérieur (BTS), une formation professionnalisante en deux ans.</p>
@@ -226,7 +225,7 @@
     </section>
 
     <!-- SECTION FAQ -->
-    <section id="faq" class="faq-section">
+    <section id="faq" class="faq-section fade-in-section">
       <div class="container">
         <div class="section-title">
           <h2>Foire Aux Questions (FAQ)</h2>
@@ -367,6 +366,61 @@
   </footer>
 
   <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+      // --- Animation au défilement ---
+      const sectionsToAnimate = document.querySelectorAll('.fade-in-section');
+
+      if (sectionsToAnimate.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.1 // Déclenche l'animation quand 10% de la section est visible
+        });
+
+        sectionsToAnimate.forEach(section => {
+          observer.observe(section);
+        });
+      }
+
+      // --- FAQ toggle ---
+      document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const faqItem = btn.parentElement;
+          const wasOpen = faqItem.classList.contains('open');
+          
+          document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('open');
+          });
+
+          if (!wasOpen) {
+            faqItem.classList.add('open');
+          }
+        });
+      });
+
+      // --- Formulaire WhatsApp ---
+      const contactForm = document.getElementById('contact-form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', (event) => {
+          event.preventDefault();
+          const name = document.getElementById('name').value;
+          const email = document.getElementById('email').value;
+          const number = document.getElementById('number').value;
+          const message = document.getElementById('message').value;
+          const whatsappMessage = `Bonjour, je vous contacte depuis votre site.\n\n*Nom:* ${name}\n*Email:* ${email}\n*Numéro:* ${number}\n\n*Message:*\n${message}`;
+          const encodedMessage = encodeURIComponent(whatsappMessage);
+          const whatsappURL = `https://wa.me/22890229652?text=${encodedMessage}`;
+          window.open(whatsappURL, '_blank');
+        });
+      }
+    });
 
     // FAQ toggle
     document.querySelectorAll('.faq-question').forEach(btn => {
