@@ -499,10 +499,10 @@ footer {
     background: var(--accent-color);
     transform: scale(1.1);
 }
-.footer-form-container h3 {
+.footer-form-container h4 {
     color: var(--white);
     font-size: 1.8rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 .form-group {
     margin-bottom: 1.5rem;
