@@ -173,7 +173,21 @@ main {
     color: var(--primary-color);
     text-align: center;
     margin-bottom: 0.5rem;
+    line-height: 1.5;
 }
+
+.light-text {
+    font-weight: normal;
+    font-size: 2rem;
+    font-style: italic;
+    display: block;
+}
+
+.bold-text {
+  display: block;
+  font-weight: 800;
+}
+
 .catalogue-desc {
     font-size: 1.2rem;
     color: var(--text-light);
