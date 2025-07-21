@@ -214,6 +214,42 @@ main {
     color: var(--accent-color);
 }
 
+/* --- NOUVEAU : Grille des modules du MBA --- */
+.premium-modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 1rem;
+  max-width: 900px;
+  margin: 2rem auto 3rem;
+  color: var(--white);
+}
+
+.module-item {
+  background-color: rgba(0, 240, 200, 0.1); /* Fond semi-transparent avec la couleur accentuée */
+  border: 1px solid rgba(0, 240, 200, 0.3);
+  border-radius: 10px;
+  padding: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.module-item:hover {
+  background-color: rgba(0, 240, 200, 0.2); /* S'éclaircit au survol */
+}
+
+.module-item i {
+  color: var(--accent-color);
+  font-size: 1.6rem;
+  width: 25px; /* Aligne les icônes */
+}
+
+.module-item span {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
 /* --- Styles pour les détails de la section Premium --- */
 .premium-details {
     max-width: 700px;
