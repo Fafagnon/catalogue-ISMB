@@ -314,6 +314,18 @@ main {
     width: 20px; /* Aligne les icônes */
 }
 
+.limited-spots {
+    color: var(--accent-color);
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 0.5rem;
+}
+
 .premium-details .deadline {
     text-align: center;
     color: var(--white);
@@ -412,6 +424,27 @@ main {
 
 .offre-bloc .content-list li {
   padding: 0.3rem 0;
+}
+
+.advantages-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  margin-top: 1rem;
+}
+
+.advantages-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  margin-bottom: 0.7rem;
+}
+
+.advantages-list i {
+  color: var(--accent-color);
+  width: 16px;
 }
 
 .offre-bloc .cta-container {
