@@ -238,6 +238,16 @@ main {
   color: var(--white);
 }
 
+/* --- NOUVEAU : Style pour le titre des modules MBA --- */
+.modules-title {
+  color: var(--white);
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 3rem; /* Espace au-dessus */
+  margin-bottom: 1.5rem; /* Espace avant la grille */
+}
+
 .module-item {
   background-color: rgba(0, 240, 200, 0.1); /* Fond semi-transparent avec la couleur accentuée */
   border: 1px solid rgba(0, 240, 200, 0.3);
@@ -262,6 +272,93 @@ main {
 .module-item span {
   font-weight: 500;
   font-size: 1rem;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Une seule colonne */
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 3rem auto 0;
+}
+
+.testimonial-card {
+  background-color: rgba(255, 255, 255, 0.05); /* Fond pour section premium */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.testimonial-card img {
+  width: 70px; /* Taille légèrement ajustée pour l'harmonie */
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Le conteneur qui gère l'alignement texte / auteur */
+.testimonial-body {
+  flex: 1;
+  display: flex;
+  justify-content: space-between; /* Pousse les éléments aux extrémités */
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.testimonial-text {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  padding-right: 1rem; /* Empêche le texte de toucher le nom */
+  flex-basis: 70%; /* Le texte prend 70% de l'espace */
+}
+
+/* Colore le premier guillemet du texte */
+.testimonial-text::first-letter {
+  color: var(--accent-color);
+  font-size: 1.1em; /* Un peu plus grand */
+  font-weight: 600;
+}
+
+.testimonial-author {
+  text-align: right; /* Aligne le texte de l'auteur à droite */
+  flex-shrink: 0; /* Empêche ce bloc de rétrécir */
+}
+
+.author-name {
+  display: block;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.author-promo {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* --- Responsive pour les mobiles --- */
+@media (max-width: 700px) {
+  .testimonial-body {
+    flex-direction: column; /* Repasse en mode vertical */
+    align-items: flex-start; /* Tout est aligné à gauche */
+    gap: 1rem;
+  }
+
+  .testimonial-author {
+    text-align: left; /* Aligne le nom à gauche sur mobile */
+    margin-top: 0.5rem;
+  }
+  
+  .testimonial-text {
+    flex-basis: auto; /* Annule la largeur de base */
+    padding-right: 0;
+  }
 }
 
 /* --- Styles pour les détails de la section Premium --- */
