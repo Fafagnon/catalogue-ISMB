@@ -444,9 +444,8 @@
     </div>
   </footer>
 
-  <script>
-
-        document.addEventListener('DOMContentLoaded', () => {
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
 
       // --- Animation au défilement ---
       const sectionsToAnimate = document.querySelectorAll('.fade-in-section');
@@ -469,15 +468,17 @@
       }
 
       // --- FAQ toggle ---
-      document.querySelectorAll('.faq-question').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const faqItem = btn.parentElement;
+      document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+          const faqItem = button.closest('.faq-item');
           const wasOpen = faqItem.classList.contains('open');
-          
+
+          // Optionnel : fermer toutes les autres questions
           document.querySelectorAll('.faq-item').forEach(item => {
             item.classList.remove('open');
           });
 
+          // Ouvrir l'élément cliqué s'il était fermé
           if (!wasOpen) {
             faqItem.classList.add('open');
           }
@@ -495,37 +496,12 @@
           const message = document.getElementById('message').value;
           const whatsappMessage = `Bonjour, je vous contacte depuis votre site.\n\n*Nom:* ${name}\n*Email:* ${email}\n*Numéro:* ${number}\n\n*Message:*\n${message}`;
           const encodedMessage = encodeURIComponent(whatsappMessage);
+          // Remplacez le numéro ci-dessous par votre numéro WhatsApp cible si différent
           const whatsappURL = `https://wa.me/22890229652?text=${encodedMessage}`;
           window.open(whatsappURL, '_blank');
         });
       }
     });
-
-    // FAQ toggle
-    document.querySelectorAll('.faq-question').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const faqItem = btn.parentElement;
-        document.querySelectorAll('.faq-item').forEach(item => {
-          if (item !== faqItem) item.classList.remove('open');
-        });
-        faqItem.classList.toggle('open');
-      });
-    });
-
-    // WhatsApp Form Submission
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-      contactForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-        const whatsappMessage = `Bonjour, je vous contacte depuis votre site.\n\n*Nom :* ${name}\n*Email :* ${email}\n\n*Message :*\n${message}`;
-        const encodedMessage = encodeURIComponent(whatsappMessage);
-        const whatsappURL = `https://wa.me/22890229652?text=${encodedMessage}`;
-        window.open(whatsappURL, '_blank');
-      });
-    }
   </script>
 </body>
 </html>
